@@ -1,45 +1,41 @@
 .timer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 600px;
-    background-color: rgb(236, 236, 236);
-    margin: 0 auto;
-    padding: 15px 0px;
-   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  background-color: rgb(236, 236, 236);
+  margin: 0 auto;
+  padding: 15px 0px;
 }
 
 .field {
-    
-    /* background-color: rgb(206, 73, 73); */
-    /* outline: solid 1px rgb(60, 22, 163); */
-    margin: 10px;
-    font-family: 'Open Sans', sans-serif;
-
-   
+  /* background-color: rgb(206, 73, 73); */
+  /* outline: solid 1px rgb(60, 22, 163); */
+  margin: 10px;
+  /* font-family: 'Open Sans', sans-serif; */
 }
 
 .value {
-    display: block;
-    text-align: center;
-    padding: 5px 10px;
-    font-size: 36px;
-    font-weight: 600;
-    color: rgb(75, 75, 75);
-    background-color: rgb(216, 216, 216);
-    /* box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset; */
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    border-radius: 6px;
+  display: block;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(75, 75, 75);
+  background-color: rgb(216, 216, 216);
+  /* box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset; */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 6px;
 
-    /* outline: solid 3px rgb(163, 22, 45); */
+  /* outline: solid 3px rgb(163, 22, 45); */
 }
 
 .label {
-    display: block;
-    text-align: center;
-    padding: 5px;
-    text-transform: uppercase;
-    font-size: 10px;
+  display: block;
+  text-align: center;
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 10px;
 
-    /* outline: solid 3px rgb(22, 163, 92); */
+  /* outline: solid 3px rgb(22, 163, 92); */
 }
