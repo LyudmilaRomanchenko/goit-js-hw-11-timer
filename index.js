@@ -6,6 +6,7 @@ const refs = {
 }
 console.log(refs);
 
+
 // Плагин для таймера
 class CountdownTimer {
     constructor({selector, targetDate}) {
