@@ -58,7 +58,8 @@ class CountdownTimer {
     }
 
     timeLeft() {
-        console.log(this.selector);
+        const timeSelector = document.querySelector(this.selector);
+        console.log(timeSelector);
 
         const startTime = this.targetDate.getTime();
         console.log(startTime);
