@@ -1,18 +1,26 @@
-const refs = {
-    getDays: document.querySelector('span[data-value="days"]'),
-    getHours: document.querySelector('span[data-value="hours"]'),
-    getMins: document.querySelector('span[data-value="mins"]'),
-    getSecs: document.querySelector('span[data-value="secs"]'),
-}
-console.log(refs);
+// const refs = {
+//     getDays: document.querySelector('span[data-value="days"]'),
+//     getHours: document.querySelector('span[data-value="hours"]'),
+//     getMins: document.querySelector('span[data-value="mins"]'),
+//     getSecs: document.querySelector('span[data-value="secs"]'),
+// }
+// console.log(refs);
 
 
 // Плагин для таймера
 class CountdownTimer {
     constructor({selector, targetDate}) {
-            this.selector = selector;
-            this.targetDate = targetDate;
-            this.timeLeft();
+        //this.selector = selector;
+
+        this.timeId = null;
+        
+        this.getDays = document.querySelector(`${selector} [data-value="days"]`);
+        this.getHours = document.querySelector(`${selector} [data-value="hours"]`);
+        this.getMins = document.querySelector(`${selector} [data-value="mins"]`);
+        this.getSecs = document.querySelector(`${selector} [data-value="secs"]`);
+
+        this.targetDate = targetDate;
+        this.timeLeft();
     }
     
     // Показывает две цифры
@@ -51,10 +59,10 @@ class CountdownTimer {
 
     // Отображаем дату на странице
     showData({days, hours, mins, secs}) {
-        refs.getDays.textContent = days;
-        refs.getHours.textContent = hours;
-        refs.getMins.textContent = mins;
-        refs.getSecs.textContent = secs;
+        this.getDays.textContent = days;
+        this.getHours.textContent = hours;
+        this.getMins.textContent = mins;
+        this.getSecs.textContent = secs;
     }
 
     timeLeft() {
@@ -63,7 +71,7 @@ class CountdownTimer {
 
         const startTime = this.targetDate.getTime();
         console.log(startTime);
-        setInterval(() => {
+        this.timeId = setInterval(() => {
             const curentTime = Date.now();
             const deltaTime = startTime - curentTime;
             const {days, hours, mins, secs} = this.getTimerComponents(deltaTime);
@@ -79,7 +87,110 @@ const timer = new CountdownTimer({
     targetDate: new Date('Jul 31, 2022'),
 });
 
+const timerA = new CountdownTimer({
+    selector: '#timer-2',
+    targetDate: new Date('Jul 31, 2023'),
+});
+
 console.log(timer);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//===================== так было
+
+// const refs = {
+//     getDays: document.querySelector('span[data-value="days"]'),
+//     getHours: document.querySelector('span[data-value="hours"]'),
+//     getMins: document.querySelector('span[data-value="mins"]'),
+//     getSecs: document.querySelector('span[data-value="secs"]'),
+// }
+// console.log(refs);
+
+
+// // Плагин для таймера
+// class CountdownTimer {
+//     constructor({selector, targetDate}) {
+//             this.selector = selector;
+//             this.targetDate = targetDate;
+//             this.timeLeft();
+//     }
+    
+//     // Показывает две цифры
+//     pad(value) {
+//         return String(value).padStart(2, '0')
+//     }
+
+//     // Получаем компоненты времени (дни, часы, минуты, секунды)
+//      getTimerComponents(time) {
+    
+//         //  * Оставшиеся дни: делим значение UTC на 1000 * 60 * 60 * 24, количество
+//         //  * миллисекунд в одном дне (миллисекунды * секунды * минуты * часы)
+//         //  */
+//         const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
+
+//         /*
+//         * Оставшиеся часы: получаем остаток от предыдущего расчета с помощью оператора
+//         * остатка % и делим его на количество миллисекунд в одном часе
+//         * (1000 * 60 * 60 = миллисекунды * минуты * секунды)
+//         */
+//         const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+
+//         /*
+//         * Оставшиеся минуты: получаем оставшиеся минуты и делим их на количество
+//         * миллисекунд в одной минуте (1000 * 60 = миллисекунды * секунды)
+//         */
+//         const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+
+//         /*
+//         * Оставшиеся секунды: получаем оставшиеся секунды и делим их на количество
+//         * миллисекунд в одной секунде (1000)
+//         */
+//         const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+//         return {days, hours, mins, secs}
+//     }
+
+//     // Отображаем дату на странице
+//     showData({days, hours, mins, secs}) {
+//         refs.getDays.textContent = days;
+//         refs.getHours.textContent = hours;
+//         refs.getMins.textContent = mins;
+//         refs.getSecs.textContent = secs;
+//     }
+
+//     timeLeft() {
+//         const timeSelector = document.querySelector(this.selector);
+//         console.log(timeSelector);
+
+//         const startTime = this.targetDate.getTime();
+//         console.log(startTime);
+//         setInterval(() => {
+//             const curentTime = Date.now();
+//             const deltaTime = startTime - curentTime;
+//             const {days, hours, mins, secs} = this.getTimerComponents(deltaTime);
+//             // console.log(`${days}:${hours}:${mins}:${secs}`);
+//             this.showData({days, hours, mins, secs});
+//         }, 1000);
+//     }
+// }
+
+// // Вызов экземпляра класса
+// const timer = new CountdownTimer({
+//     selector: '#timer-1',
+//     targetDate: new Date('Jul 31, 2022'),
+// });
+
+// console.log(timer);
 
 
 
